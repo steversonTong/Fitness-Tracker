@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const Workout = require("../models/workout");
 
-router.get("/api/workout", async (req, res) => {
+router.get("/api/workouts", async (req, res) => {
   try {
     Workout.find().then((dbWorkout) => {
       res.json(dbWorkout);
@@ -12,7 +12,7 @@ router.get("/api/workout", async (req, res) => {
   }
 });
 
-router.get("/api/workout/range", async (req, res) => {
+router.get("/api/workouts/range", async (req, res) => {
   try {
     Workout.find().then((dbWorkout) => {
       res.json(dbWorkout);
@@ -23,7 +23,7 @@ router.get("/api/workout/range", async (req, res) => {
   }
 });
 
-router.post("/api/workout", async ({ body }, res) => {
+router.post("/api/workouts", async ({ body }, res) => {
   try {
     Workout.create({}).then((dbWorkout) => {
       res.json(dbWorkout);
@@ -34,7 +34,7 @@ router.post("/api/workout", async ({ body }, res) => {
   }
 });
 
-router.put("/api/workout/:id", async ({ body, params }, res) => {
+router.put("/api/workouts/:id", async ({ body, params }, res) => {
   try {
     Workout.findByIdAndUpdate(
       params.id,
